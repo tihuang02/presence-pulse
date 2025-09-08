@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=DotTeams
+Comment=Keep Microsoft Teams status active with automated presence simulation
+Exec=python3 /path/to/presencepulse/gui/app.py
+Icon=/path/to/presencepulse/assets/presencepulse-icon.png
+Terminal=false
+Type=Application
+Categories=Utility;Network;
+StartupNotify=false
