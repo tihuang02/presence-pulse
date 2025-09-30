@@ -36,27 +36,7 @@
             pyproject = true;
             build-system = [ setuptools ];
           };
-        presencepulse =
-          with pythonPackages;
-          buildPythonApplication {
-            pname = "presencepulse";
-            version = "0.1.0";
-            src = ./.;
-            propagatedBuildInputs = [
-              aiohttp
-              pychrome
-              pkgs.ungoogled-chromium
-            ];
-            pyproject = true;
-            build-system = [ setuptools ];
-            installPhase = ''
-              runHook preInstall
-
-              python setup.py install --prefix $out
-
-              runHook postInstall
-            '';
-          };
+        presencepulse = import ./buildApp.nix { inherit pythonPackages pkgs pychrome; };
       in
       {
         packages.default = presencepulse;
