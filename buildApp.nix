@@ -1,5 +1,8 @@
-{ pythonPackages, pkgs, pychrome }:
+{ pkgs }:
 
+let
+  pythonPackages = pkgs.pythonPackages;
+in
 pythonPackages.buildPythonApplication {
   pname = "presencepulse";
   version = "0.1.0";
@@ -7,7 +10,7 @@ pythonPackages.buildPythonApplication {
   propagatedBuildInputs = [
     pythonPackages.aiohttp
     pythonPackages.setuptools
-    pychrome
+    pythonPackages.pychrome
     pkgs.ungoogled-chromium
   ];
   pyproject = true;
